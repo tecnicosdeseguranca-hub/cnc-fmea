@@ -1,0 +1,7 @@
+<!DOCTYPE html><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Abrindo o app…</title>
+<body style="margin:0;background:#15181c;color:#e8eaed;font:16px system-ui,sans-serif;display:grid;place-items:center;height:100vh">Abrindo o app…
+<script>
+(async()=>{const dir=location.pathname.replace(/[^/]*$/,'');const ns=[...Array(39)].map((_,i)=>40-i);
+const rs=await Promise.all(ns.map(n=>fetch(dir+'app'+n+'.html',{method:'HEAD',cache:'no-store'}).then(r=>r.ok?n:0).catch(()=>0)));
+const best=rs.find(x=>x);location.replace(dir+(best?'app'+best+'.html':'app.html')+location.search)})();
+</script></body>
